@@ -1,0 +1,146 @@
+﻿body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    /*background-image: url('restaurant-background.jpg');*/ /* Replace with your image URL */
+    background: url(../assets/images/rest.png) no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-container {
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent background */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 400px;
+}
+
+    .login-container h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .login-container input[type="text"],
+    .login-container input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    .login-container button {
+        width: 100%;
+        padding: 10px;
+        background-color: #007BFF;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+        .login-container button:hover {
+            background-color: #0056b3;
+        }
+
+    .login-container .signup-link {
+        display: block;
+        text-align: center;
+        margin-top: 20px;
+    }
+
+        .login-container .signup-link a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+
+            .login-container .signup-link a:hover {
+                text-decoration: underline;
+            }
+
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 10px 20px;
+    color: white;
+}
+
+    .navbar a {
+        color: white;
+        text-decoration: none;
+        padding: 8px 16px;
+    }
+
+        .navbar a:hover {
+            background-color: #575757;
+            border-radius: 4px;
+        }
+
+    .navbar .logo {
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    .navbar .nav-links {
+        display: flex;
+    }
+
+        .navbar .nav-links a {
+            margin-left: 20px;
+        }
+
+    .navbar .auth-buttons {
+        display: flex;
+    }
+
+        .navbar .auth-buttons a {
+            margin-left: 10px;
+            border: 1px solid white;
+            border-radius: 4px;
+            padding: 8px 16px;
+        }
+
+            .navbar .auth-buttons a:hover {
+                background-color: white;
+                color: #333;
+            }
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 10px 20px;
+    color: white;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+    .footer a {
+        color: white;
+        text-decoration: none;
+        padding: 8px 16px;
+    }
+
+        .footer a:hover {
+            background-color: #575757;
+            border-radius: 4px;
+        }
+
+    .footer .footer-links {
+        display: flex;
+    }
+
+        .footer .footer-links a {
+            margin-left: 20px;
+        }

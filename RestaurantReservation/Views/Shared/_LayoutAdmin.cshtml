@@ -1,0 +1,229 @@
+﻿@{
+    RestaurantReservation.Models.AdminViewModel userModel = RestaurantReservation.Service.Common.GetLoginData();
+    string fullname = userModel.FullName;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Loop</title>
+
+    <link rel="shortcut icon" type="image/x-icon" href="@Url.Content("~/Content/assets/images/logores.png")">
+
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="@Url.Content("~/Content/assets/css/bootstrap.min.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Content/assets/css/style.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Content/assets/vendors/sweetalert2/css/sweetalert2.min.css")">
+
+    <link rel="stylesheet" href="@Url.Content("~/Content/assets/css/font-awesome.min.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Content/assets/css/themify-icons.css")">
+    <link href="@Url.Content("~/Content/assets/css/ionicons.min.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/assets/css/et-line.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/assets/css/feather.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/assets/css/flag-icon.min.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/assets/css/materialdesignicons.min.css")" rel="stylesheet" />
+    <script src="@Url.Content("~/Content/assets/js/modernizr-2.8.3.min.js")"></script>
+    <link rel="stylesheet" href="@Url.Content("~/Content/assets/css/metisMenu.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Content/assets/css/slicknav.min.css")">
+
+    <link rel="stylesheet" href="@Url.Content("~/Content/assets/vendors/data-table/css/jquery.dataTables.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Content/assets/vendors/data-table/css/responsive.bootstrap.min.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Content/assets/vendors/data-table/css/responsive.jqueryui.min.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Content/css/custom.css")">
+    <link href="@Url.Content("~/Content/assets/vendors/lightpick/css/lightpick.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/assets/vendors/mdtimepicker/mdtimepicker.min.css")" rel="stylesheet" />
+
+    <link href="@Url.Content("~/Content/css/PagedList.css")" rel="stylesheet" />
+
+    <link href="@Url.Content("~/Content/assets/vendors/select2/select2.min.css")" rel="stylesheet" />
+
+    <link href="@Url.Content("~/Content/assets/vendors/summernote/dist/summernote-bs4.css")" rel="stylesheet" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/assets/vendors/ladda-button/css/ladda-themeless.min.css")">
+
+    <link rel="stylesheet" href="@Url.Content("~/Content/assets/vendors/LitePicker/main.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Content/assets/css/loader.css")">
+
+</head>
+
+
+<body>
+    <div id="pageloadingmain" style="display:none">
+        <div class="overlay">
+            <div class="loading text-center">
+                <div>
+                    <img src="@Url.Content("~/Content/assets/images/logores.png")" alt="" style="object-fit:cover;width:110px;border-radius:10px" class="menu-image img-w round-corner2">
+                </div>
+                <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+                <div>
+                    <span style="color:#ddd;">Loading. Please wait...</span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div id="page-container">
+
+        <div class="header-area">
+
+            <div class="header-area-left">
+                <a href="#" class="logo">
+                    <span>
+                        <img src="@Url.Content("~/Content/assets/images/logores.png")" style="width:65px" alt="" height="18">
+                    </span>
+                    <i>
+                        <img src="@Url.Content("~/Content/assets/images/logores.png")" style="width:65px" alt="" height="22">
+                    </i>
+                </a>
+            </div>
+
+
+            <div class="row align-items-center header_right">
+
+                <div class="col-md-6 d_none_sm d-flex align-items-center">
+                    <div class="nav-btn button-menu-mobile pull-left">
+                        <button class="open-left waves-effect">
+                            <i class="ion-android-menu"></i>
+                        </button>
+                    </div>
+                    @*<div class="search-box pull-left">
+                            <form action="#">
+                                <i class="ti-search"></i>
+                                <input type="text" name="search" placeholder="Search..." required="">
+                            </form>
+                        </div>*@
+                </div>
+
+                <div class="col-md-6 col-sm-12">
+                    <ul class="notification-area pull-right">
+                        <li class="mobile_menu_btn">
+                            <span class="nav-btn pull-left d_none_lg">
+                                <button class="open-left waves-effect">
+                                    <i class="ion-android-menu"></i>
+                                </button>
+                            </span>
+                        </li>
+
+                        <li id="full-view" class="d_none_sm"><i class="feather ft-maximize"></i></li>
+                        <li id="full-view-exit" class="d_none_sm"><i class="feather ft-minimize"></i></li>
+
+                        <li class="user-dropdown">
+                            <div class="dropdown">
+                                <a class="btn dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <img src="@Url.Content("~/Content/assets/images/user.png")" alt="" class="img-fluid">
+                                </a>
+                                <div class="dropdown-menu dropdown_user" aria-labelledby="dropdownMenuButton">
+                                    <div class="dropdown-header d-flex flex-column align-items-center">
+                                        <div class="user_bio text-center">
+                                            <p class="name font-weight-bold mb-0">@fullname</p>
+                                         
+                                        </div>
+                                    </div>
+
+                                    <span role="separator" class="divider"></span>
+                                    <a class="dropdown-item" href="@Url.Action("Login","Admin")"><i class="ti-power-off"></i>Logout</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="sidebar_menu">
+            <div class="menu-inner">
+                <div id="sidebar-menu">
+
+                    <ul class="metismenu" id="sidebar_menu">
+                        <li class="menu-title">Administration</li>
+                        <li>
+                            <a href="@Url.Action("Users","Admin")">
+                                <i class="feather ft-user"></i>
+                                <span>Users</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Restaurant","Admin")">
+                                <i class="feather ft-home"></i>
+                                <span>Restaurants</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Reservation","Admin")">
+                                <i class="feather ft-book"></i>
+                                <span>Reservations</span>
+                            </a>
+                        </li>
+                        <li class="menu-title">Website</li>
+                        <li>
+                            <a href="@Url.Action("Index","Home")">
+                                <i class="feather ft-globe"></i>
+                                <span>Go to Website</span>
+                            </a>
+                        </li>
+                    </ul>
+
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+
+        <div class="main-content page-content">
+            <div class="main-content-inner">
+                @RenderBody()
+            </div>
+
+
+        </div>
+
+        @* <footer>
+                <div class="footer-area">
+                    <p>Developed by <a href="#">CodeChester</a> &copy; Copyright 2023. All right reserved.</p>
+                </div>
+            </footer>*@
+
+    </div>
+
+    <script src="@Url.Content("~/Content/assets/js/jquery.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/assets/js/popper.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/assets/js/bootstrap.min.js")" type="text/javascript"></script>
+
+    <script src="@Url.Content("~/Content/assets/js/metisMenu.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/assets/js/jquery.slimscroll.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/assets/js/jquery.slicknav.min.js")" type="text/javascript"></script>
+
+    @*<script src="@Url.Content("~/Content/assets/vendors/data-table/js/dataTables.bootstrap4.min.js")" type="text/javascript" ></script>*@
+    @*<script src="@Url.Content("~/Content/assets/vendors/data-table/js/dataTables.responsive.min.js")" type="text/javascript" ></script>*@
+    <script src="@Url.Content("~/Content/assets/vendors/data-table/js/jquery.dataTables.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/assets/vendors/sweetalert2/js/sweetalert2.all.min.js")" type="text/javascript"></script>
+    @*<script src="@Url.Content("~/Content/assets/vendors/data-table/js/responsive.bootstrap.min.js")" type="text/javascript" ></script>*@
+
+    <script src="@Url.Content("~/Content/assets/js/moment.min.js")"></script>
+    <script src="@Url.Content("~/Content/assets/vendors/lightpick/js/lightpick.js")"></script>
+    <script src="@Url.Content("~/Content/assets/vendors/mdtimepicker/mdtimepicker.min.js")"></script>
+    <script src="@Url.Content("~/Content/assets/js/main.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/js/site.js" )" type="text/javascript"></script>
+
+    <script src="@Url.Content("~/Content/assets/vendors/select2/select2.min.js")"></script>
+
+    <script src="@Url.Content("~/Content/assets/vendors/summernote/dist/summernote-bs4.min.js")"></script>
+    <!-- Ladda Button Js -->
+    <script src="@Url.Content("~/Content/assets/vendors/ladda-button/js/spin.min.js")"></script>
+    <script src="@Url.Content("~/Content/assets/vendors/ladda-button/js/ladda.jquery.min.js")"></script>
+    <script src="@Url.Content("~/Content/assets/vendors/ladda-button/js/ladda.min.js")"></script>
+
+    <!-- Ladda Button init Js -->
+    <script src="@Url.Content("~/Content/assets/js/init/ladda-button.js")"></script>
+
+    <script src="@Url.Content("~/Content/assets/vendors/LitePicker/litepicker.js")"></script>
+
+    @RenderSection("scripts", required: false)
+
+</body>
+
+</html>
+

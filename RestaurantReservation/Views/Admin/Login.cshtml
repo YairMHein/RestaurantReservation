@@ -1,0 +1,150 @@
+﻿@model RestaurantReservation.Models.AdminViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login - Restaurant Reservation System</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="shortcut icon" type="image/x-icon" href="@Url.Content("~/Content/assets/images/logores.png")">
+    <link rel="stylesheet" href="@Url.Content("~/Content/assets/css/bootstrap.min.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Content/assets/css/style.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Content/assets/vendors/sweetalert2/css/sweetalert2.min.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/css/owl.carousel.min.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/css/owl.theme.default.min.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Content/assets/css/font-awesome.min.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Content/assets/css/themify-icons.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Content/assets/css/ionicons.min.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Content/assets/css/et-line.css")">
+    <link href="@Url.Content("~/Content/assets/css/feather.css")" rel="stylesheet" />
+    <script src="@Url.Content("~/Content/assets/js/modernizr-2.8.3.min.js")"></script>
+    <link rel="stylesheet" href="@Url.Content("~/Content/assets/css/metisMenu.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Content/assets/css/slicknav.min.css")">
+    <link href="@Url.Content("~/Content/assets/css/flag-icon.min.css")" rel="stylesheet" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/assets/vendors/ladda-button/css/ladda-themeless.min.css")">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="login-bg">
+                    <div class="login-overlay"></div>
+                    <div class="login-left">
+                        <img src="@Url.Content("~/Content/assets/images/logores.png")" alt="Logo" style="width:150px">
+                        <p>Restaurant Reservation System</p>
+                        @*<a href="javascript:void(0);" class="btn btn-primary">Learn More</a>*@
+                    </div><!--login-left-->
+                </div><!--login-bg-->
+
+                <div class="login-form">
+                    <form>
+                        <div class="login-form-body">
+                            <div class="form-gp">
+                                <label>User Name</label>
+                                @Html.TextBoxFor(model => model.UserName, new { @class = "form-control", @autocomplete = "off" })
+                                <div class="invalid-feedback" id="UserName-error" style="display:none;">
+                                    Please Enter Username.
+                                </div>
+                            </div>
+                            <div class="form-gp">
+                                <label>Password</label>
+                                @Html.PasswordFor(model => model.Password, new { @class = "form-control", @autocomplete = "off" })
+                                <div class="invalid-feedback" id="Password-error" style="display:none;">
+                                    Please Enter Password.
+                                </div>
+                            </div>
+                            @*<div class="row mb-4 rmber-area">
+                                <div class="col-6">
+                                <div class="custom-control custom-checkbox primary-checkbox mr-sm-2">
+                                <input type="checkbox" class="custom-control-input" id="customControlAutosizing">
+                                <label class="custom-control-label" for="customControlAutosizing">Remember Me</label>
+                                </div>
+                                </div>
+                                <div class="col-6 text-right">
+                                <a href="#" class="text-primary">Forgot Password?</a>
+                                </div>
+                                </div>*@
+                            <div class="submit-btn-area">
+                                <button id="btnLogin" type="button" class="btn btn-dark ladda-button ladda_btn" data-style="zoom-out">
+                                    <span class="ladda-label">  Login <i class="ti-arrow-right"></i></span>
+                                </button>
+                                @* <div class="login-other row mt-4">
+                                    <div class="col-6">
+                                    <a class="fb-login" href="#"><span class="login_txt">Log in with</span>  <i class="fa fa-facebook"></i></a>
+                                    </div>
+                                    <div class="col-6">
+                                    <a class="google-login" href="#"><span class="login_txt">Log in with</span>  <i class="fa fa-google"></i></a>
+                                    </div>
+                                    </div>*@
+                            </div>
+                            @*<div class="form-footer text-center mt-5">
+                                <p class="text-muted">Don't have an account? <a href="register.html" class="text-primary">Sign up</a></p>
+                                </div>*@
+                        </div>
+                    </form>
+                </div><!--login-form-->
+
+            </div><!--row-->
+        </div><!--container-fluid-->
+    </div><!--wrapper-->
+    <script src="@Url.Content("~/Content/assets/js/jquery.min.js")"></script>
+    <script src="@Url.Content("~/Content/assets/js/popper.min.js")"></script>
+    <script src="@Url.Content("~/Content/assets/js/bootstrap.min.js")"></script>
+    <script src="@Url.Content("~/Content/assets/vendors/sweetalert2/js/sweetalert2.all.min.js")"></script>
+    <script src="@Url.Content("~/Content/assets/js/owl.carousel.min.js")"></script>
+    <script src="@Url.Content("~/Content/assets/js/metisMenu.min.js")"></script>
+    <script src="@Url.Content("~/Content/assets/js/jquery.slimscroll.min.js")"></script>
+    <script src="@Url.Content("~/Content/assets/js/jquery.slicknav.min.js")"></script>
+    <script src="@Url.Content("~/Content/assets/js/jquery.fancybox.pack.js")"></script>
+    <script src="@Url.Content("~/Content/assets/js/main.js")"></script>
+
+    <!-- Ladda Button Js -->
+    <script src="@Url.Content("~/Content/assets/vendors/ladda-button/js/spin.min.js")"></script>
+    <script src="@Url.Content("~/Content/assets/vendors/ladda-button/js/ladda.jquery.min.js")"></script>
+    <script src="@Url.Content("~/Content/assets/vendors/ladda-button/js/ladda.min.js")"></script>
+
+    <!-- Ladda Button init Js -->
+    <script src="@Url.Content("~/Content/assets/js/init/ladda-button.js")"></script>
+
+    @Scripts.Render("~/bundles/login")
+    <script type="text/javascript">
+    var loginUrl = '@Url.Action("Login", "Admin")';
+    var homeUrl = '@Url.Action("Index", "Admin")';
+
+        //window.onbeforeunload = function (e) {
+        //    var message = 'Important: Please click on \'Save\' button to leave this page.';
+        //    if (typeof e == 'undefined') {
+        //        e = window.event;
+        //    }
+        //    if (e) {
+        //        e.returnValue = message;
+        //    }
+        //    return message;
+        //};
+
+
+
+        window.onunload = function () {
+
+            var arr = localStorage.openpages;
+
+            var onLocalStorageEvent = function (e) {
+                if (e.key == "openpage") {
+                    alert("One more page already open");
+                }
+            };
+            window.addEventListener('storage', onLocalStorageEvent);
+            alert('Bye.');
+        }
+
+
+
+    </script>
+
+</body>
+</html>

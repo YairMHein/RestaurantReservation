@@ -1,0 +1,198 @@
+﻿@model RestaurantReservation.Models.RestaurantViewModel
+
+@{
+    ViewBag.Title = "Restaurant";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="row mb-4">
+    <div class="col-md-12 grid-margin">
+        <div class="d-flex justify-content-between flex-wrap">
+            <div class="d-flex align-items-center dashboard-header flex-wrap mb-3 mb-sm-0">
+                <h5 class="mr-4 mb-0 font-weight-bold">Restaurant</h5>
+
+            </div>
+            <div class="d-flex">
+                <button type="button" class="btn btn-dark mt-2" data-toggle="modal" data-target="#exampleModalLong"><i class="fa fa-plus"></i> Add Restaurant</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <!-- Progress Table start -->
+    <div class="col-12 mt-4">
+        <div class="card">
+            <div class="card-body">
+                <div class="single-table">
+                    <div class="table-responsive datatable-dark">
+                        <table class="table table-striped text-center" id="tbl">
+                            <thead class="text-uppercase">
+                                <tr>
+                                    <th scope="col">No</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Type</th>
+                                    <th scope="col">Description</th>
+                                    <th scope="col">Open Days</th>
+                                    <th scope="col">Open Hours</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="exampleModalLong">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="lblheader">Add New Restaurant</h5>
+                <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    @Html.HiddenFor(a => a.Id)
+                    <div class="form-row">
+                        <div class="col-sm-4">
+                            <label>Name</label><span class="redstar">*</span>
+                            @Html.TextBoxFor(a => a.Name, new { @class = "form-control" })
+                            <div class="invalid-feedback" id="Name-error" style="display:none;">Enter Name.</div>
+                        </div>
+                        <div class="col-sm-4">
+                            <label>Type</label><span class="redstar">*</span>
+                            @Html.TextBoxFor(a => a.Type, new { @class = "form-control" })
+                            <div class="invalid-feedback" id="Type-error" style="display:none;">Enter Type.</div>
+                        </div>
+                        <div class="col-sm-4">
+                            <label>Description</label>
+                            @Html.TextAreaFor(a => a.Description, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-sm-3">
+                            <label>From Time</label><span class="redstar">*</span>
+                            @Html.TextBoxFor(a => a.FromTimeClock, new { @class = "form-control" })
+                            <div class="invalid-feedback" id="FromTimeClock-error" style="display:none;">Enter FromTime.</div>
+                        </div>
+                        <div class="col-sm-3">
+                            <label></label>
+                            <select class="form-control" id="ddlFromTimeAMPM" style="margin-top: 8px;">
+                                <option selected value="AM">AM</option>
+                                <option value="PM">PM</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-3">
+                            <label>To Time</label><span class="redstar">*</span>
+                            @Html.TextBoxFor(a => a.ToTimeClock, new { @class = "form-control" })
+                            <div class="invalid-feedback" id="FromTimeClock-error" style="display:none;">Enter FromTime.</div>
+                        </div>
+                        <div class="col-sm-3">
+                            <label></label>
+                            <select class="form-control" id="ddlToTimeAMPM"  style="margin-top: 8px;">
+                                <option value="AM">AM</option>
+                                <option selected value="PM">PM</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row mt-4">
+                        <div class="col-sm-3">
+                            <div class="form-check">
+                                <div class="custom-control custom-checkbox dark-checkbox mr-sm-2">
+                                    <input type="checkbox" name="chkDays" class="custom-control-input" id="chkMonday" value="Monday" checked>
+                                    <label class="custom-control-label" for="chkMonday">
+                                        Monday
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-check">
+                                <div class="custom-control custom-checkbox dark-checkbox mr-sm-2">
+                                    <input type="checkbox" name="chkDays" class="custom-control-input" id="chkTuesday" value="Tuesday" checked>
+                                    <label class="custom-control-label" for="chkTuesday">
+                                        Tuesday
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-check">
+                                <div class="custom-control custom-checkbox dark-checkbox mr-sm-2">
+                                    <input type="checkbox" name="chkDays" class="custom-control-input" id="chkWednesday" value="Wednesday" checked>
+                                    <label class="custom-control-label" for="chkWednesday">
+                                        Wednesday
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-check">
+                                <div class="custom-control custom-checkbox dark-checkbox mr-sm-2">
+                                    <input type="checkbox" name="chkDays" class="custom-control-input" id="chkThursday" value="Thursday" checked>
+                                    <label class="custom-control-label" for="chkThursday">
+                                        Thursday
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row mt-4">
+                        <div class="col-sm-3">
+                            <div class="form-check">
+                                <div class="custom-control custom-checkbox dark-checkbox mr-sm-2">
+                                    <input type="checkbox" name="chkDays" class="custom-control-input" id="chkFriday" value="Friday" checked>
+                                    <label class="custom-control-label" for="chkFriday">
+                                        Friday
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-check">
+                                <div class="custom-control custom-checkbox dark-checkbox mr-sm-2">
+                                    <input type="checkbox" name="chkDays" class="custom-control-input" id="chkSaturday" value="Saturday" checked>
+                                    <label class="custom-control-label" for="chkSaturday">
+                                        Saturday
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-check">
+                                <div class="custom-control custom-checkbox dark-checkbox mr-sm-2">
+                                    <input type="checkbox" name="chkDays" class="custom-control-input" id="chkSunday" value="Sunday" checked>
+                                    <label class="custom-control-label" for="chkSunday">
+                                        Sunday
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light" data-dismiss="modal" id="btnCancel"><i class="fa fa-ban"></i> Cancel</button>
+                <button type="button" class="btn btn-dark ladda-button ladda_btn" data-style="zoom-out" id="btnSave">
+                    <span class="ladda-label"> <i class="fa fa-save"></i> Save</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    @Scripts.Render("~/bundles/restaurant")
+    <script type="text/javascript">
+        $(function () {
+        });
+        var listUrl = '@Url.Action("GetListRestaurant", "Admin")';
+        var saveUrl = '@Url.Action("UpsertRestaurant", "Admin")';
+        var editUrl = '@Url.Action("GetByIDRestaurant", "Admin")';
+        var deleteUrl = '@Url.Action("DeleteRestaurant", "Admin")';
+    </script>
+}

@@ -1,0 +1,167 @@
+﻿
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.search-box {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+    .search-box input {
+        flex: 1;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    .search-box button {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #007BFF;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+        .search-box button:hover {
+            background-color: #0056b3;
+        }
+.restaurant-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.restaurant-item {
+    padding: 15px;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    background-color: #fafafa;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+    .restaurant-item h2 {
+        margin: 0 0 10px;
+        font-size: 20px;
+    }
+
+    .restaurant-item p {
+        margin: 5px 0;
+        color: #555;
+    }
+
+.reserve-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+    .reserve-button:hover {
+        background-color: #218838;
+    }
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 10px 20px;
+    color: white;
+}
+
+    .navbar a {
+        color: white;
+        text-decoration: none;
+        padding: 8px 16px;
+    }
+
+        .navbar a:hover {
+            background-color: #575757;
+            border-radius: 4px;
+        }
+
+    .navbar .logo {
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    .navbar .nav-links {
+        display: flex;
+    }
+
+        .navbar .nav-links a {
+            margin-left: 20px;
+        }
+
+    .navbar .auth-buttons {
+        display: flex;
+    }
+
+        .navbar .auth-buttons a {
+            margin-left: 10px;
+            border: 1px solid white;
+            border-radius: 4px;
+            padding: 8px 16px;
+        }
+
+            .navbar .auth-buttons a:hover {
+                background-color: white;
+                color: #333;
+            }
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 10px 20px;
+    color: white;
+    clear: both;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+    .footer a {
+        color: white;
+        text-decoration: none;
+        padding: 8px 16px;
+    }
+
+        .footer a:hover {
+            background-color: #575757;
+            border-radius: 4px;
+        }
+
+    .footer .footer-links {
+        display: flex;
+    }
+
+        .footer .footer-links a {
+            margin-left: 20px;
+        }

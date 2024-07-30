@@ -1,0 +1,102 @@
+﻿@model RestaurantReservation.Models.UserViewModel
+
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up Page</title>
+    <link rel="stylesheet" href="@Url.Content("~/Content/client/login.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Content/assets/css/bootstrap.min.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Content/assets/vendors/data-table/css/responsive.bootstrap.min.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Content/assets/vendors/data-table/css/responsive.jqueryui.min.css")">
+    <link href="@Url.Content("~/Content/assets/vendors/lightpick/css/lightpick.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/assets/vendors/mdtimepicker/mdtimepicker.min.css")" rel="stylesheet" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/assets/vendors/LitePicker/main.css")">
+
+</head>
+<body>
+
+    <div class="login-container">
+        <h2>Create an account</h2>
+        <form>
+            <div class="col-12">
+                <div class="form-group">
+                    <label for="username">Username</label><span style="color:red">*</span>
+                    <input type="text" class="form-control" id="username" placeholder="Username" required>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="form-group">
+                    <label for="fullname">Fullname</label><span style="color:red">*</span>
+                    <input type="text" class="form-control" id="fullname" placeholder="Fullname" required>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="form-group">
+                    <label for="password">Password</label><span style="color:red">*</span>
+                    <input type="password" class="form-control" id="password" placeholder="Password" required>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="form-group">
+                    <label for="phone">Phone</label><span style="color:red">*</span>
+                    <input type="text" class="form-control" id="phone" placeholder="Phone" required>
+                </div>
+            </div>
+
+            <a href="javascript:void(0);" id="btnSignup" class="btn btn-primary btn-block">Sign up</a>
+        </form>
+        <div class="signup-link">
+            Already have an account? <a href="@Url.Action("Login","Home")">Log in</a>
+        </div>
+    </div>
+    <script src="@Url.Content("~/Content/assets/js/jquery.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/assets/js/popper.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/assets/js/bootstrap.min.js")" type="text/javascript"></script>
+
+    <script src="@Url.Content("~/Content/assets/js/metisMenu.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/assets/js/jquery.slimscroll.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/assets/js/jquery.slicknav.min.js")" type="text/javascript"></script>
+
+    @*<script src="@Url.Content("~/Content/assets/vendors/data-table/js/dataTables.bootstrap4.min.js")" type="text/javascript" ></script>*@
+    @*<script src="@Url.Content("~/Content/assets/vendors/data-table/js/dataTables.responsive.min.js")" type="text/javascript" ></script>*@
+    <script src="@Url.Content("~/Content/assets/vendors/data-table/js/jquery.dataTables.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/assets/vendors/sweetalert2/js/sweetalert2.all.min.js")" type="text/javascript"></script>
+    @*<script src="@Url.Content("~/Content/assets/vendors/data-table/js/responsive.bootstrap.min.js")" type="text/javascript" ></script>*@
+
+    <script src="@Url.Content("~/Content/assets/js/moment.min.js")"></script>
+    <script src="@Url.Content("~/Content/assets/vendors/lightpick/js/lightpick.js")"></script>
+    <script src="@Url.Content("~/Content/assets/vendors/mdtimepicker/mdtimepicker.min.js")"></script>
+    <script src="@Url.Content("~/Content/assets/js/main.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/js/site.js" )" type="text/javascript"></script>
+
+    <script src="@Url.Content("~/Content/assets/vendors/select2/select2.min.js")"></script>
+
+    <script src="@Url.Content("~/Content/assets/vendors/LitePicker/litepicker.js")"></script>
+
+    @Scripts.Render("~/bundles/clientsignup")
+    <script type="text/javascript">
+    var registerUrl = '@Url.Action("Register", "Home")';
+    var homeUrl = '@Url.Action("Login", "Home")';
+
+    //window.onbeforeunload = function (e) {
+    //    var message = 'Important: Please click on \'Save\' button to leave this page.';
+    //    if (typeof e == 'undefined') {
+    //        e = window.event;
+    //    }
+    //    if (e) {
+    //        e.returnValue = message;
+    //    }
+    //    return message;
+    //};
+
+
+
+    </script>
+</body>
+</html>
+
